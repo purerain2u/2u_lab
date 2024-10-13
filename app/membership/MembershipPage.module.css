@@ -1,0 +1,163 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.contentContainer {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.blueText {
+  color: #007bff;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.navItem {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.navItem:hover {
+  color: #007bff;
+}
+
+.main {
+  margin-top: 40px;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.plansContainerWrapper {
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.plansContainer {
+  display: flex;
+  justify-content: space-between;
+  min-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.planCard {
+  flex: 1;
+  margin: 0 10px;
+  min-width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  padding-top: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.planCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.free { border-color: #ccc; }
+.bronze { border-color: #cd7f32; }
+.silver { border-color: #c0c0c0; }
+.gold { border-color: #ffd700; }
+.diamond { border-color: #b9f2ff; }
+
+.bestBadge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #4caf50;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.planCard h2 {
+  margin-bottom: 15px;
+}
+
+.planCard ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.planCard li {
+  margin-bottom: 10px;
+}
+
+.available { color: #000; }
+
+.price {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.subscribeButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subscribeButton:hover {
+  background-color: #0056b3;
+}
+
+.benefitTable {
+  width: 100%;
+  margin-top: 40px;
+  border-collapse: collapse;
+}
+
+.benefitTable th, .benefitTable td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.benefitTable th {
+  background-color: #f2f2f2;
+}

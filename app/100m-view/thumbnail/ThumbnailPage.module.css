@@ -1,0 +1,161 @@
+.pageContainer {
+    background-color: white;
+    min-height: 100vh;
+    color: #333;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .quizContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .searchContainer {
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
+  }
+  
+  .searchInput {
+    flex-grow: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    background-color: white;
+    color: #333;
+  }
+  
+  .searchButton {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+  
+  .thumbnailsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  .thumbnailItem {
+    width: 45%;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .thumbnailTitle {
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+  }
+  
+  .choiceButton {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #00b4d8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .feedback {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    color: #00b4d8;
+  }
+  
+  .errorMessage {
+    color: #ff6b6b;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .nav {
+    background-color: white;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .navContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .logoContainer {
+    flex: 1;
+  }
+  
+  .logo {
+    color: #00b4d8;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .navLinks {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navLink {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .navLink:hover {
+    color: #00b4d8;
+  }
+  
+  .contentContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  .description {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .thumbnailContainer {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 비율 */
+  }

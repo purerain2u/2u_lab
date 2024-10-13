@@ -1,0 +1,276 @@
+.pageContainer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+.nav {
+    background-color: #1a1a1a;
+    padding: 1rem 0;
+    border-bottom: 1px solid #333333;
+}
+
+.navContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.logoContainer {
+    flex-shrink: 0;
+}
+
+.logo {
+    color: #00aaff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navLinks {
+    display: flex;
+    gap: 1rem;
+}
+
+.navLink {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+}
+
+.navLink:hover {
+    color: #00aaff;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: white;
+    min-height: 100vh;
+}
+
+.title {
+    font-size: 42px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00b4d8;
+    font-weight: bold;
+}
+
+.subDescriptionWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.subDescription {
+    font-size: 1rem;
+    color: #ffffff;
+    max-width: 800px;
+    text-align: center;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(33.33% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cardTitle {
+    font-size: 24px;
+    color: #00b4d8;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.cardDescription {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.startButton {
+    background-color: #00b4d8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: auto;
+}
+
+.startButton:hover {
+    background-color: #0077b6;
+}
+
+.imageContainer {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.imageLabel {
+    font-size: 16px;
+    color: #888;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* 새로운 스타일 추가 */
+.quizContainer {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.searchInput {
+    width: 70%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #444;
+    color: #fff;
+    border: 1px solid #00b4d8;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.searchButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #00b4d8;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.thumbnailsContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.thumbnailItem {
+    width: 48%;
+}
+
+.thumbnail {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.ratingButton {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #00b4d8;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.feedback {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #00b4d8;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.choiceButton {
+    width: 48%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #00b4d8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+    .cardContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .cardTitle {
+        white-space: normal;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 36px;
+    }
+
+    .subDescription {
+        font-size: 0.9rem;
+    }
+
+    .cardTitle {
+        font-size: 22px;
+    }
+
+    .cardDescription {
+        font-size: 16px;
+    }
+
+    .startButton {
+        font-size: 18px;
+    }
+
+    .searchInput,
+    .searchButton {
+        font-size: 14px;
+    }
+
+    .feedback {
+        font-size: 20px;
+    }
+}

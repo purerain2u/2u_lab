@@ -1,0 +1,168 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #ffffff;
+    color: #333333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+.headerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftContent {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00a8ff;
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.navItem {
+    text-decoration: none;
+    color: #333333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.navItem:hover {
+    color: #00a8ff;
+}
+
+.main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.pageTitle {
+    font-size: 28px;
+    color: #333333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.wrapper {
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.leftColumn, .rightColumn {
+    flex: 1;
+    min-width: 0;
+}
+
+.paymentMethods {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.paymentMethod {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.agreements {
+    margin-top: 20px;
+}
+
+.agreement {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.priceDetails {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.priceRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.paymentButton {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.disabledButton {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.errorMessage {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.successMessage {
+    color: #4CAF50;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* 토스페이먼츠 위젯 스타일 */
+.w100 {
+    width: 100%;
+}
+
+#payment-method {
+    margin-bottom: 20px;
+}
+
+#agreement {
+    margin-bottom: 20px;
+}
+
+/* 추가된 스타일 */
