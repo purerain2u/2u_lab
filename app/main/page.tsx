@@ -24,7 +24,7 @@ export default function MainPage() {
       </header>
 
       <main className={styles.main}>
-        <h2 className={styles.mainTitle}>유튜브 크리에이터의 성공을 데이터로 디자인하다</h2>
+        <h2 className={styles.mainTitle}>유튜브 크리에이터의 성공을 데이터로 분석하다</h2>
         <p className={styles.mainDescription}>
           2U_lab은 AI 기반 유튜브 분석 솔루션을 통해 크리에이터의 성장을 지원합니다.
         </p>
@@ -32,15 +32,15 @@ export default function MainPage() {
         <div className={styles.buttonContainer}>
           <Link href="/target-search" className={styles.mainButton}>
             타겟영상 검색
-            <span className={styles.buttonDescription}>유사한 콘텐츠의 성공 요인을 분석합니다.</span>
+            <span className={styles.buttonDescription}>유사한 콘텐츠의 성공 요인을 분석합니다</span>
           </Link>
           <Link href="/100m-view" className={styles.mainButton}>
             100M View 따라잡기
-            <span className={styles.buttonDescription}>100M View 영상의 주요 요소를 분석하고 학습합니다.</span>
+            <span className={styles.buttonDescription}>100M View 영상의 주요 요소를 분석하고 학습합니다</span>
           </Link>
           <Link href="/target-source-collection" className={styles.mainButton}>
             타겟소스 수집
-            <span className={styles.buttonDescription}>트렌드에 맞는 콘텐츠 아이디어를 제공합니다.</span>
+            <span className={styles.buttonDescription}>트렌드에 맞는 콘텐츠 아이디어를 제공합니다</span>
           </Link>
           <Link href="/membership" className={styles.mainButton}>
             멤버십 신청

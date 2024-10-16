@@ -16,9 +16,9 @@ export default function LandingPage() {
         </nav>
       </header>
 
-      <main>
+      <main className={styles.main}>
         <section className={styles.hero}>
-          <h1>유튜브 크리에이터의 성공을<br />데이터로 디자인하다</h1>
+          <h1>유튜브 크리에이터의 성공을<br />데이터로 실현하다</h1>
           <p>2U_lab은 AI 기반 유튜브 분석 솔루션을 통해<br />크리에이터의 성장을 지원합니다.</p>
           <div className={styles.buttons}>
             <Link href="/signup" className={styles.button}>회원가입</Link>
@@ -31,15 +31,15 @@ export default function LandingPage() {
           <div className={styles.serviceGrid}>
             <div className={styles.serviceItem}>
               <h3>AI 영상 분석</h3>
-              <p>딥러닝 기술을 활용한 영상 콘텐츠 분석으로 성공 요인을 파악합니다.</p>
+              <p>다양한 기술을 활용한 영상 콘텐츠 분석으로 성공 요인을 파악합니다</p>
             </div>
             <div className={styles.serviceItem}>
-              <h3>트랜드 예측</h3>
-              <p>썸네일 분석과 100만View 영상 패턴학습을 통한 인기 주제와 형식을 예측합니다.</p>
+              <h3>트렌드 예측</h3>
+              <p>채널 분석과 100만View 이상 패턴학습을 통한 차기 주제 및 소재를 예측합니다</p>
             </div>
             <div className={styles.serviceItem}>
               <h3>맞춤형 전략 수립</h3>
-              <p>개별 크리에이터에 최적화된 콘텐츠 전략을 제안합니다.</p>
+              <p>개별 크리에이터에 최적화된 콘텐츠 전략을 제안합니다</p>
             </div>
           </div>
         </section>
@@ -59,9 +59,9 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className={styles.cta}>
-          <h2>지금 바로 시작하세요</h2>
-          <p>2U_lab과 함께 유튜브 성공을 향한 여정을 시작하세요.</p>
+        <section className={styles.ctaSection}>
+          <h2>지금 시작하세요</h2>
+          <p>2U_lab과 함께 유튜브 성공을 위한 여정을 시작하세요!</p>
         </section>
       </main>
 

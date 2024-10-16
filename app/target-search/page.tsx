@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
-import { useRouter } from 'next/navigation';  // 이 부분을 수정
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './TargetSearch.module.css';
@@ -18,13 +18,13 @@ const TargetSearchPage: React.FC = () => {
   const [selectedVideo, setSelectedVideo] = useState<SearchResult | null>(null);
   const [videoPopup, setVideoPopup] = useState<string | null>(null);
   const [selectedVideos, setSelectedVideos] = useState<SearchResult[]>([]);
-  const router = useRouter();  // 이 줄을 추가
+  const router = useRouter();
 
   const loadInitialVideos = async () => {
     setIsLoading(true);
     setError(null);
     try {
-      const initialResults = await searchYouTube('AI자동화');
+      const initialResults = await searchYouTube('AI 자동화');
       setSearchResults(initialResults);
     } catch (error) {
       console.error('초기 비디오 로드 중 오류 발생:', error);
@@ -128,7 +128,7 @@ const TargetSearchPage: React.FC = () => {
             </Link>
           </div>
           <nav className={styles.nav}>
-            <Link href="/target-search" className={styles.navItem}>타겟영상검색</Link>
+            <Link href="/target-search" className={styles.navItem}>타겟영상찾기</Link>
             <Link href="/100m-view" className={styles.navItem}>100M view 따라잡기</Link>
             <Link href="/target-source-collection" className={styles.navItem}>타겟소스수집목록</Link>
             <Link href="/membership" className={styles.navItem}>멤버십 신청</Link>
@@ -152,22 +152,22 @@ const TargetSearchPage: React.FC = () => {
                   <th>썸네일</th>
                   <th>제목</th>
                   <th onClick={() => handleSort('subscriberCount')} className={styles.sortableHeader}>
-                    구독자{renderSortArrow('subscriberCount')}
+                    구독자 수{renderSortArrow('subscriberCount')}
                   </th>
                   <th onClick={() => handleSort('viewCount')} className={styles.sortableHeader}>
                     조회수{renderSortArrow('viewCount')}
                   </th>
                   <th onClick={() => handleSort('likeCount')} className={styles.sortableHeader}>
-                    좋아요{renderSortArrow('likeCount')}
+                    좋아요 수{renderSortArrow('likeCount')}
                   </th>
                   <th onClick={() => handleSort('contribution')} className={styles.sortableHeader}>
                     기여도{renderSortArrow('contribution')}
                   </th>
                   <th onClick={() => handleSort('performance')} className={styles.sortableHeader}>
-                    성과도{renderSortArrow('performance')}
+                    성과{renderSortArrow('performance')}
                   </th>
                   <th onClick={() => handleSort('totalVideos')} className={styles.sortableHeader}>
-                    총&nbsp;영상&nbsp;수{renderSortArrow('totalVideos')}
+                    총 영상 수{renderSortArrow('totalVideos')}
                   </th>
                   <th onClick={() => handleSort('publishedAt')} className={styles.sortableHeader}>
                     게시일{renderSortArrow('publishedAt')}

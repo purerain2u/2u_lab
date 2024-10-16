@@ -6,7 +6,12 @@ import Link from 'next/link';
 import styles from './PaymentPage.module.css';
 import dynamic from 'next/dynamic';
 
-const DynamicPaymentContent = dynamic(() => import('./components/PaymentContent'), {
+interface PaymentContentProps {
+  type: string;
+  price: number;
+}
+
+const DynamicPaymentContent = dynamic<PaymentContentProps>(() => import('./components/PaymentContent'), {
   ssr: false,
   loading: () => <p>결제 정보를 불러오는 중...</p>
 });
@@ -44,7 +49,7 @@ const PaymentPage: React.FC = () => {
           </div>
           <nav className={styles.nav}>
             <Link href="/target-search" className={styles.navItem}>타겟영상검색</Link>
-            <Link href="/100m-view" className={styles.navItem}>100M view 따라잡기</Link>
+            <Link href="/100m-view" className={styles.navItem}>100M view 따라하기</Link>
             <Link href="/target-source-collection" className={styles.navItem}>타겟소스수집목록</Link>
             <Link href="/membership" className={styles.navItem}>멤버십 신청</Link>
           </nav>

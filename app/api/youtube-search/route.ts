@@ -8,11 +8,11 @@ export async function GET(request: Request) {
     const q = searchParams.get('q');
 
     if (!q) {
-      return NextResponse.json({ error: '검색어가 필요합니다.' }, { status: 400 });
+      return NextResponse.json({ error: '검색어가 필요합니다' }, { status: 400 });
     }
 
     if (!API_KEY) {
-      console.error('YouTube API 키가 설정되지 않았습니다.');
+      console.error('YouTube API 키가 설정되지 않았습니다');
       return NextResponse.json({ error: '서버 구성 오류' }, { status: 500 });
     }
 

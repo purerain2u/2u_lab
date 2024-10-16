@@ -47,7 +47,7 @@ const calculateContribution = (
 
 export const searchYouTube = async (query: string): Promise<SearchResult[]> => {
   if (!API_KEY) {
-    throw new Error('YouTube API 키가 설정되지 않았습니다.');
+    throw new Error('YouTube API 키가 설정되지 않았습니다');
   }
 
   try {
@@ -112,7 +112,7 @@ export const searchYouTube = async (query: string): Promise<SearchResult[]> => {
       console.error('응답 상태:', error.response.status);
       console.error('응답 헤더:', error.response.headers);
     }
-    throw new Error('YouTube 데이터를 가져오는데 실패했습니다. 다시 시도해 주세요.');
+    throw new Error('YouTube 데이터를 가져오는데 실패했습니다. 다시 시도해 주세요');
   }
 };
 
@@ -131,7 +131,7 @@ export const getRandomVideos = async (): Promise<SearchResult[]> => {
       contribution: 'High',
       performance: 'Good',
       channelTitle: '랜덤 채널 1',
-      description: '이것은 랜덤 비디오 1의 설명입니다.'
+      description: '이것은 랜덤 비디오 1의 설명입니다'
     },
     // ... 더 많은 랜덤 비디오 데이터 추가
   ];

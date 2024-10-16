@@ -51,7 +51,7 @@ const VideoAnalysisPopup: React.FC<VideoAnalysisPopupProps> = ({ videoData, onCl
           }
         });
       } catch (error) {
-        console.error('채널 데이터를 가져오는 데 실패했습니다:', error);
+        console.error('채널 데이터를 가져오는데 실패했습니다:', error);
       }
     };
 
@@ -153,7 +153,7 @@ const VideoAnalysisPopup: React.FC<VideoAnalysisPopupProps> = ({ videoData, onCl
         beginAtZero: true,
         title: {
           display: true,
-          text: `조회수 (${unit})`
+          text: `조회수(${unit})`
         },
         ticks: {
           callback: function(value) {
@@ -225,7 +225,7 @@ const VideoAnalysisPopup: React.FC<VideoAnalysisPopupProps> = ({ videoData, onCl
           {!showGraph ? (
             <div className={styles.graphButtonContainer}>
               <button className={styles.showGraphButton} onClick={() => setShowGraph(true)}>
-                그래프 확인
+                그래프 보기
               </button>
             </div>
           ) : (

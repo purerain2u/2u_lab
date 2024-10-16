@@ -26,6 +26,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env*.local
 
 # vercel
@@ -58,10 +59,5 @@ next-env.d.ts
 ehthumbs.db
 Thumbs.db
 
-# 환경 변수
-.env
-
-# 기타 일반적으로 무시되는 파일들
-node_modules/
-.next/
+# Logs
 *.log

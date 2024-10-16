@@ -20,7 +20,7 @@ export default function ThumbnailQuizPage() {
               타겟영상검색
             </Link>
             <Link href="/100m-view" className={styles.navLink}>
-              100M view 따라잡기
+              100M view 따라하기
             </Link>
             <Link href="/target-source-collection" className={styles.navLink}>
               타겟소스수집목록
@@ -35,7 +35,7 @@ export default function ThumbnailQuizPage() {
       <div className={styles.contentContainer}>
         <h1 className={styles.title}>Best 썸네일 구분하기</h1>
         <div className={styles.description}>
-          <p>클릭을 부르는 Best 썸네일의 특징을 분석하여 효과적인 썸네일 제작 방법을 제시합니다.</p>
+          <p>클릭을 부르는 Best 썸네일의 특징을 분석하여 효과적인 썸네일 제작 방법을 제시합니다</p>
         </div>
         <BestThumbnailQuiz />
       </div>

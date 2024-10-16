@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import axios from 'axios';
-import EyeIcon from '../signup/EyeIcon';  // EyeIcon 컴포넌트의 경로를 확인하세요
+import EyeIcon from '../signup/EyeIcon';
 import styles from './LoginPage.module.css';
 import landingStyles from '../LandingPage.module.css';
 import PageVisitLogger from '../../components/PageVisitLogger';
@@ -12,9 +12,7 @@ import PageVisitLogger from '../../components/PageVisitLogger';
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState('');
   const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();
@@ -27,6 +25,10 @@ const LoginPage = () => {
     e.preventDefault();
     setError('');
 
+    if (!email || !password) {
+      setError('이메일과 비밀번호를 모두 입력해주세요.');
+      return;
+    }
 
     try {
       const response = await axios.post('/api/login', { email, password });
@@ -37,8 +39,22 @@ const LoginPage = () => {
       }
     } catch (error: any) {
       console.error('로그인 에러:', error);
-      setError(error.response?.data?.message || '로그인 중 오류가 발생했습니다. 다시 시도해 주세요.');
+      if (error.response) {
+        // 서버 응답이 있는 경우
+        setError(`로그인 실패: ${error.response.data.message || '알 수 없는 오류가 발생했습니다.'}`);
+      } else if (error.request) {
+        // 요청은 전송되었지만 응답을 받지 못한 경우
+        setError('서버와 연결할 수 없습니다. 네트워크 연결을 확인해 주세요.');
+      } else {
+        // 요청 설정 중 오류가 발생한 경우
+        setError('로그인 요청 중 오류가 발생했습니다. 다시 시도해 주세요.');
+      }
     }
+  };
+
+  const handleComingSoon = (e: React.MouseEvent) => {
+    e.preventDefault();
+    alert('이 기능은 현재 개발 중입니다. 곧 이용하실 수 있습니다!');
   };
 
   return (
@@ -76,6 +92,7 @@ const LoginPage = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                minLength={8}
                 className={styles.input}
               />
               {isMounted && (
@@ -83,6 +100,7 @@ const LoginPage = () => {
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className={styles.passwordToggle}
+                  aria-label={showPassword ? "비밀번호 숨기기" : "비밀번호 보기"}
                 >
                   <EyeIcon isVisible={showPassword} />
                 </button>
@@ -92,9 +110,15 @@ const LoginPage = () => {
           <button type="submit" className={styles.button}>로그인</button>
         </form>
         <div className={styles.links}>
-          <Link href="/forgot-id">아이디 찾기</Link>
-          <Link href="/forgot-password">비밀번호 찾기</Link>
-          <Link href="/signup">회원가입</Link>
+          <a href="#" onClick={handleComingSoon} className={styles.link}>
+            아이디 찾기
+          </a>
+          <a href="#" onClick={handleComingSoon} className={styles.link}>
+            비밀번호 찾기
+          </a>
+          <Link href="/signup" className={styles.link}>
+            회원가입
+          </Link>
         </div>
       </div>
     </div>

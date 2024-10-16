@@ -23,21 +23,42 @@ const SignupPage = () => {
   const getInputGuide = (field: string) => {
     switch (field) {
       case 'username':
-        return '이름은 2글자 이상이어야 합니다.';
+        return '이름은 2글자 이상이어야 합니다';
       case 'email':
         return '유효한 이메일 주소를 입력해주세요.';
       case 'password':
-        return '비밀번호는 영문, 숫자, 특수문자를 포함하여 8글자 이상이어야 합니다.';
+        return '비밀번호는 영문, 숫자, 특수문자를 포함하여 8글자 이상이어야 합니다';
       case 'confirmPassword':
-        return '비밀번호를 다시 입력해주세요.';
+        return '비밀번호를 한번 더 입력해주세요.';
       default:
         return '';
     }
   };
 
+  const validatePassword = (password: string) => {
+    // 최소 8자 이상, 영문, 숫자, 특수문자 중 2가지 이상 조합
+    const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    return regex.test(password);
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
+
+    if (username.length < 3) {
+      setError('사용자 이름은 2글자 이상이어야 합니다.');
+      return;
+    }
+
+    if (!validatePassword(password)) {
+      setError('비밀번호는 영문, 숫자, 특수문자를 포함하여 8글자 이상이어야 합니다.');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setError('비밀번호가 일치하지 않습니다.');
+      return;
+    }
 
     try {
       const response = await axios.post('/api/signup', {
@@ -48,13 +69,13 @@ const SignupPage = () => {
 
       if (response.data.success) {
         console.log('회원가입 성공:', response.data);
-        router.push('/main');
+        router.push('/login');
       } else {
-        setError(response.data.message || '회원가입에 실패했습니다.');
+        setError(response.data.message || '회원가입 중 오류가 발생했습니다.');
       }
     } catch (error: any) {
       console.error('회원가입 에러:', error);
-      setError(error.response?.data?.message || '회원가입 중 오류가 발생했습니다. 다시 시도해 주세요.');
+      setError(error.response?.data?.message || '회원가입 중 오류가 발생했습니다.');
     }
   };
 
@@ -77,10 +98,12 @@ const SignupPage = () => {
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.inputWrapper}>
             <input
+              id="username"
+              name="username"
               type="text"
               placeholder="사용자 이름"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)}
               onFocus={() => setFocusedField('username')}
               onBlur={() => setFocusedField('')}
               required
@@ -90,10 +113,12 @@ const SignupPage = () => {
           </div>
           <div className={styles.inputWrapper}>
             <input
+              id="email"
+              name="email"
               type="email"
               placeholder="이메일"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
               onFocus={() => setFocusedField('email')}
               onBlur={() => setFocusedField('')}
               required
@@ -104,10 +129,12 @@ const SignupPage = () => {
           <div className={styles.inputWrapper}>
             <div className={styles.passwordInputWrapper}>
               <input
+                id="password"
+                name="password"
                 type={showPassword ? "text" : "password"}
                 placeholder="비밀번호"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                 onFocus={() => setFocusedField('password')}
                 onBlur={() => setFocusedField('')}
                 required
@@ -126,10 +153,12 @@ const SignupPage = () => {
           <div className={styles.inputWrapper}>
             <div className={styles.passwordInputWrapper}>
               <input
+                id="confirmPassword"
+                name="confirmPassword"
                 type={showConfirmPassword ? "text" : "password"}
                 placeholder="비밀번호 확인"
                 value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}
                 onFocus={() => setFocusedField('confirmPassword')}
                 onBlur={() => setFocusedField('')}
                 required

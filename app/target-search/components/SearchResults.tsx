@@ -3,7 +3,7 @@ import styles from '../TargetSearch.module.css';
 import Image from 'next/image';
 
 interface SearchResult {
-  // 검색 결과의 타입을 정의합니다
+  // 검색 결과의 속성을 정의합니다.
   title: string;
   channelTitle: string;
   thumbnailUrl: string;
@@ -41,11 +41,11 @@ const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
           <p>좋아요 수: {result.likeCount}</p>
           <p>댓글 수: {result.commentCount}</p>
           <p>구독자 수: {result.subscriberCount}</p>
-          <p>채널 내 총 영상 수: {result.totalVideos}</p>
+          <p>채널 총 영상 수: {result.totalVideos}</p>
           <p className={styles[result.contribution]}>기여도: {result.contribution}</p>
           <p className={styles[result.performance]}>성과도: {result.performance}</p>
           <a href={`https://www.youtube.com/watch?v=${result.videoId}`} target="_blank" rel="noopener noreferrer">
-            동영상 보기
+            영상 보기
           </a>
         </div>
       ))}

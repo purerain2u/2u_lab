@@ -66,7 +66,7 @@ const PaymentContent: React.FC<PaymentContentProps> = ({ type, price }) => {
       amount: price,
       orderId: 'ORDER_ID_' + new Date().getTime(),
       orderName: `${type} 멤버십`,
-      customerName: '고객명',
+      customerName: '고객',
       successUrl: `${window.location.origin}/membership/payment/success`,
       failUrl: `${window.location.origin}/membership/payment/fail`,
     }).catch((error: any) => {
@@ -74,8 +74,8 @@ const PaymentContent: React.FC<PaymentContentProps> = ({ type, price }) => {
         // 사용자가 결제창을 닫았을 때 처리
         console.log('사용자가 결제를 취소했습니다.');
       } else {
-        // 기타 에러 처리
-        console.error('결제 중 오류가 발생했습니다:', error);
+        // 기타 오류 처리
+        console.error('결제 오류가 발생했습니다:', error);
       }
     });
   }, [isPaymentEnabled, type, price]);
@@ -90,7 +90,7 @@ const PaymentContent: React.FC<PaymentContentProps> = ({ type, price }) => {
         <div className={styles.leftColumn}>
           <h2>결제 수단 선택</h2>
           <div className={styles.paymentMethods}>
-            {['신용카드', '실시간 계좌이체', '가상 계좌', '휴대폰 결제'].map((method) => (
+            {['신용카드', '실시간계좌이체', '가상계좌', '휴대폰결제'].map((method) => (
               <label key={method} className={styles.paymentMethod}>
                 <input
                   type="radio"
@@ -138,7 +138,7 @@ const PaymentContent: React.FC<PaymentContentProps> = ({ type, price }) => {
                 checked={checkboxes.marketing}
                 onChange={handleCheckboxChange}
               />
-              마케팅 정보 수신 동의 (선택)
+              마케팅정보 수신 동의 (선택)
             </label>
           </div>
         </div>
@@ -151,15 +151,15 @@ const PaymentContent: React.FC<PaymentContentProps> = ({ type, price }) => {
             </div>
             <div className={styles.priceRow}>
               <span>할인 금액</span>
-              <span className={styles.discountPrice}>0원</span>
+              <span className={styles.discountPrice}>0 원</span>
             </div>
             <div className={styles.priceRow}>
               <span>특별 할인 금액</span>
-              <span className={styles.discountPrice}>0원</span>
+              <span className={styles.discountPrice}>0 원</span>
             </div>
             <div className={styles.priceRow}>
               <span>제휴카드 할인 금액</span>
-              <span className={styles.discountPrice}>0원</span>
+              <span className={styles.discountPrice}>0 원</span>
             </div>
           </div>
         </div>

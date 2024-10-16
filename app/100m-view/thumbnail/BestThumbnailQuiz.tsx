@@ -40,12 +40,12 @@ const BestThumbnailQuiz = () => {
   };
 
   const handleChoice = (choice: 'Best' | 'Bad') => {
-    // 실제로는 여기서 선택의 정확성을 확인해야 합니다.
-    // 지금은 예시로 항상 'Best'가 정답이라고 가정합니다.
+    // 실제로는 여기서 선택의 정확성을 확인해야 합니다
+    // 지금은 임시로 항상 'Best'가 정답이라고 가정합니다.
     if (choice === 'Best') {
-      setFeedback('맞았습니다! 👏💯');
+      setFeedback('맞았습니다! 👍');
     } else {
-      setFeedback('틀렸습니다! 😵');
+      setFeedback('틀렸습니다! 😢');
     }
   };
 
@@ -86,7 +86,7 @@ const BestThumbnailQuiz = () => {
           ))}
         </div>
       ) : (
-        <p className={styles.errorMessage}>검색 결과가 없습니다. 검색어를 입력하고 검색 버튼을 눌러주세요.</p>
+        <p className={styles.errorMessage}>검색 결과가 없습니다. 주제를 입력하세요</p>
       )}
     </div>
   );
