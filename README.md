@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 2u_lab
 
-## Getting Started
+이 프로젝트는 [Next.js](https://nextjs.org)를 사용하여 구축된 웹 애플리케이션으로, YouTube를 활용한 마케팅 전문화 학습 서비스를 제공합니다. 2u 사회적협동조합의 "Moving All, Stopping None" 철학을 바탕으로, 디지털 마케팅 분야에서의 교육과 성장을 지원합니다.
 
-First, run the development server:
+## 접근 방법
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+https://www.2u_lab.co.kr 접속
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 사용 방법
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. 사용자 등록 및 로그인
+2. 학습 코스 탐색 및 선택
+3. 타겟소스 확보 및 미션 수행
+4. 진도 추적 및 성과 분석
+5. 기타: 디지털 마케터 양성 프로그램 참여 기회 제공
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## 라이선스
 
-To learn more about Next.js, take a look at the following resources:
+이 프로젝트는 [2u_Lab]으로 배포됩니다. 자세한 내용은 https://2u.or.kr를 참조하거나 biz@2u.or.kr로 문의하세요.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 추가 정보
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2u_lab은 2u 사회적협동조합으로, 다음과 같은 다양한 사회 혁신 프로젝트를 진행하고 있습니다:
 
-## Deploy on Vercel
+- 교통약자를 위한 자동배차 시스템
+- 포용관광 프로젝트
+- 노인복지 통합 플랫폼
+- 중증 장애인 출퇴근 서비스
+- 휠체어 사용자를 위한 내비게이션 서비스
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 연락처
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 이메일: biz@2u.or.kr
+- 전화: +82-70-8672-5845
+- 주소: 부산광역시 해운대구 센텀중앙로48 1811,1812호 (우동, 에이스하이테크21)
