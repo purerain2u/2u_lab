@@ -3,10 +3,10 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
-import { errorHandler } from './middleware/errorHandler';
 import authRoutes from './routes/authRoutes';
-import membershipRoutes from './routes/membershipRoutes';
-import paymentRoutes from './routes/paymentRoutes';
+import membershipRoutes from '../server/routes/membershipRoutes';
+import paymentRoutes from '../server/routes/paymentRoutes';
+import { errorController } from '../server/controllers/errorController';
 
 dotenv.config();
 
@@ -21,10 +21,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // 라우트 설정
 app.use('/api/auth', authRoutes);
-app.use('/api/memberships', membershipRoutes);
+app.use('/api/membership', membershipRoutes);
 app.use('/api/payments', paymentRoutes);
 
-// 에러 핸들링 미들웨어
-app.use(errorHandler);
+// 에러 핸들러
+app.use(errorController);
 
 export default app;
