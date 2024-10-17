@@ -1,10 +1,6 @@
 'use client';
 
-<<<<<<< HEAD
-import React, { useState } from 'react';
-=======
 import { useState } from 'react';
->>>>>>> 9a384b9 (Initial commit: API 엔드포인트 구현, 데이터베이스 연결 및 기본 쿼리 구현)
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './100MViewPage.module.css';
@@ -20,9 +16,6 @@ export default function HundredMViewPage() {
   };
 
   if (showComingSoon) {
-<<<<<<< HEAD
-    return <ComingSoon title={comingSoonTitle} onBack={() => setShowComingSoon(false)} />;
-=======
     return (
       <ComingSoon 
         title={comingSoonTitle} 
@@ -31,7 +24,6 @@ export default function HundredMViewPage() {
         onBack={() => setShowComingSoon(false)}
       />
     );
->>>>>>> 9a384b9 (Initial commit: API 엔드포인트 구현, 데이터베이스 연결 및 기본 쿼리 구현)
   }
 
   return (
@@ -128,8 +120,4 @@ export default function HundredMViewPage() {
       </div>
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9a384b9 (Initial commit: API 엔드포인트 구현, 데이터베이스 연결 및 기본 쿼리 구현)
