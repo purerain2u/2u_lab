@@ -19,18 +19,47 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true,
     "paths": {
       "@/*": [
-        "src/*"
+        "./*"
+      ],
+      "@/components/*": [
+        "./components/*"
+      ],
+      "@/utils/*": [
+        "./utils/*"
+      ],
+      "@/lib/*": [
+        "./lib/*"
+      ],
+      "@/types/*": [
+        "./types/*"
+      ],
+      "@/server/*": [
+        "./server/*"
       ]
     },
     "plugins": [
       {
         "name": "next"
       }
+    ],
+    "types": [
+      "jest",
+      "@testing-library/jest-dom"
     ]
   },
   "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "server/controllers/analyticsController.js",
+    ".next/types/**/*.ts",
     "src/**/*.ts",
     "tests/**/*.ts"
   ],

@@ -1,38 +1,66 @@
 'use client';
 
-import React from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import styles from './ComingSoon.module.css';
 
 interface ComingSoonProps {
   title: string;
-  onBack: () => void;
+  backTo?: string;
+  onBack?: () => void;
+  message?: string;
 }
 
-const ComingSoon: React.FC<ComingSoonProps> = ({ title, onBack }) => {
+const ComingSoon: FC<ComingSoonProps> = ({ title, backTo, onBack, message }) => {
   const router = useRouter();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleBackClick = () => {
-    if (title === '100만 뷰 스크립트 학습하기' || title === '100만 뷰 영상 제목 생성하기') {
-      router.push('/membership');
+    if (onBack) {
+      onBack();
+    } else if (backTo) {
+      router.push(backTo);
     } else {
-      router.push('/');
+      router.push('/100m-view'); // 기본값으로 메인 페이지 설정
     }
   };
 
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <div className={styles.container}>
-      <h1>{title}</h1>
-      <p>이 페이지는 현재 준비 중입니다. 곧 멋진 컨텐츠로 찾아뵙겠습니다!</p>
-      <button
-        onClick={handleBackClick}
-        className={styles.backButton}
-      >
-        {title === '100만 뷰 스크립트 학습하기' || title === '100만 뷰 영상 제목 생성하기'
-          ? '멤버십 페이지로 이동하기'
-          : '홈으로 돌아가기'}
-      </button>
+      <div className={styles.content}>
+        <div className={styles.imageContainer}>
+          <Image
+            src="/comingsoon.png"
+            alt="Coming Soon"
+            width={400}
+            height={400}
+            className={styles.image}
+            onError={(e) => {
+              console.error('Image failed to load', e);
+            }}
+          />
+        </div>
+        <h1 className={styles.title}>{title}</h1>
+        <p className={styles.message}>{message || "해당 페이지는 현재 준비 중입니다."}</p>
+        <p className={styles.message}>곧 멋진 컨텐츠로 찾아뵙겠습니다!</p>
+        <button
+          onClick={handleBackClick}
+          className={styles.backButton}
+        >
+          {backTo === '/' ? '랜딩 페이지로 돌아가기' : 'Main으로 돌아가기'}
+        </button>
+      </div>
     </div>
+  );
 };
 
 export default ComingSoon;

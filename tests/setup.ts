@@ -1,8 +1,15 @@
-import { connectToDatabase, closeDatabase } from '@/utils/db';
+import { MongoMemoryServer } from 'mongodb-memory-server';
+import dbConnect from '@/utils/dbConnect';
 import jwt from 'jsonwebtoken';
+import mongoose from 'mongoose';
+
+let mongod: MongoMemoryServer;
 
 export const setupTestDatabase = async () => {
-  return await connectToDatabase();
+  mongod = await MongoMemoryServer.create();
+  const uri = mongod.getUri();
+  await dbConnect(uri);
+  return mongoose.connection;
 };
 
 export const generateTestToken = (userId: string = 'test_user_id') => {
@@ -10,5 +17,28 @@ export const generateTestToken = (userId: string = 'test_user_id') => {
 };
 
 export const closeTestDatabase = async () => {
-  await closeDatabase();
+  await mongoose.connection.close();
+  if (mongod) {
+    await mongod.stop();
+  }
 };
+
+export const clearDatabase = async () => {
+  const collections = mongoose.connection.collections;
+  for (const key in collections) {
+    await collections[key].deleteMany({});
+  }
+};
+
+// Jest hooks
+beforeAll(async () => {
+  await setupTestDatabase();
+});
+
+afterAll(async () => {
+  await closeTestDatabase();
+});
+
+beforeEach(async () => {
+  await clearDatabase();
+});
