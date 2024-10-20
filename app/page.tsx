@@ -1,46 +1,59 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import styles from './LandingPage.module.css';
+'use client';
 
+import React from 'react';
+import Link from 'next/link';
+import styles from './LandingPage.module.css';
+import { useEffect } from 'react';
+import PageVisitLogger from '@/components/PageVisitLogger';
 export default function LandingPage() {
+  useEffect(() => {
+    const logger = new PageVisitLogger({ pageType: 'landing' });
+    logger.logPageVisit();
+    return () => {
+      logger.cancelPendingLogs();
+    };
+  }, []);
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
         <nav className={styles.nav}>
-          <Link href="/" className={styles.logo}>2U_lab</Link>
+          <Link href="/" className={styles.logo}>
+            2U_lab
+          </Link>
           <div className={styles.navLinks}>
-            <Link href="/about">ABOUT 2U</Link>
-            <Link href="/services">2ULab SERVICES</Link>
-            <Link href="/contact">CONTACT US</Link>
+            <Link href="/about" className={styles.navLink}>ABOUT 2U</Link>
+            <Link href="/services" className={styles.navLink}>2ULab SERVICES</Link>
+            <Link href="/contact" className={styles.navLink}>CONTACT US</Link>
+            <Link href="/target-search" className={styles.navLink}>타겟영상찾기</Link>
+            <Link href="/100m-view" className={styles.navLink}>100M view 따라잡기</Link>
+            <Link href="/target-source-collection" className={styles.navLink}>타겟소스수집목록</Link>
+            <Link href="/membership" className={styles.navLink}>멤버십 신청</Link>
           </div>
         </nav>
       </header>
 
       <main className={styles.main}>
         <section className={styles.hero}>
-          <h1>유튜브 크리에이터의 성공을<br />데이터로 실현하다</h1>
-          <p>2U_lab은 AI 기반 유튜브 분석 솔루션을 통해<br />크리에이터의 성장을 지원합니다.</p>
-          <div className={styles.buttons}>
-            <Link href="/signup" className={styles.button}>회원가입</Link>
-            <Link href="/login" className={styles.button}>로그인</Link>
-          </div>
+          <h1>유튜브 성공을 위한 당신의 파트너, 2U_lab</h1>
+          <p>데이터 기반의 인사이트로 당신의 채널을 성장시키세요</p>
+          <Link href="/signup" className={styles.cta}>
+            시작하기
+          </Link>
         </section>
 
-        <section className={styles.services}>
-          <h2>주요 서비스</h2>
-          <div className={styles.serviceGrid}>
-            <div className={styles.serviceItem}>
-              <h3>AI 영상 분석</h3>
-              <p>다양한 기술을 활용한 영상 콘텐츠 분석으로 성공 요인을 파악합니다</p>
-            </div>
-            <div className={styles.serviceItem}>
-              <h3>트렌드 예측</h3>
-              <p>채널 분석과 100만View 이상 패턴학습을 통한 차기 주제 및 소재를 예측합니다</p>
-            </div>
-            <div className={styles.serviceItem}>
-              <h3>맞춤형 전략 수립</h3>
-              <p>개별 크리에이터에 최적화된 콘텐츠 전략을 제안합니다</p>
-            </div>
+        <section className={styles.features}>
+          <div className={styles.feature}>
+            <h2>타겟 영상 분석</h2>
+            <p>성공한 영상들의 패턴을 분석하여 최적의 전략을 제시합니다.</p>
+          </div>
+          <div className={styles.feature}>
+            <h2>맞춤형 컨설팅</h2>
+            <p>각 채널의 특성에 맞는 맞춤형 성장 전략을 제공합니다.</p>
+          </div>
+          <div className={styles.feature}>
+            <h2>트렌드 예측</h2>
+            <p>빅데이터 분석을 통해 다가올 트렌드를 미리 파악합니다.</p>
           </div>
         </section>
 
@@ -66,7 +79,7 @@ export default function LandingPage() {
       </main>
 
       <footer className={styles.footer}>
-        <p>&copy; 2024 2U_lab. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} 2U_lab. All rights reserved.</p>
       </footer>
     </div>
   );

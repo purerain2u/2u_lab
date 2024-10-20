@@ -1,0 +1,22 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/100m-view/page": "app/100m-view/page.js",
+  "/api/log-visit/route": "app/api/log-visit/route.js",
+  "/100m-view/thumbnail/page": "app/100m-view/thumbnail/page.js",
+  "/api/login/route": "app/api/login/route.js",
+  "/api/users/[id]/route": "app/api/users/[id]/route.js",
+  "/api/auth/register/route": "app/api/auth/register/route.js",
+  "/contact/page": "app/contact/page.js",
+  "/login/page": "app/login/page.js",
+  "/main/page": "app/main/page.js",
+  "/api/signup/route": "app/api/signup/route.js",
+  "/membership/page": "app/membership/page.js",
+  "/services/page": "app/services/page.js",
+  "/page": "app/page.js",
+  "/signup/page": "app/signup/page.js",
+  "/target-search/page": "app/target-search/page.js",
+  "/target-source-collection/page": "app/target-source-collection/page.js",
+  "/about/page": "app/about/page.js",
+  "/api/youtube-search/route": "app/api/youtube-search/route.js",
+  "/membership/payment/page": "app/membership/payment/page.js"
+}

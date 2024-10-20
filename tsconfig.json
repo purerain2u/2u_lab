@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -19,51 +15,44 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@/components/*": ["frontend/components/*"],
+      "@/lib/*": ["frontend/lib/*"],
+      "@/utils/*": ["frontend/utils/*"],
+      "@/types/*": ["frontend/types/*"],
+      "@/src/*": ["backend/src/*"],
+      "@/controllers/*": ["backend/src/controllers/*"],
+      "@/models/*": ["backend/src/models/*"],
+      "@/routes/*": ["backend/src/routes/*"],
+      "@/middleware/*": ["backend/src/middleware/*"]
+    },
+    "plugins": [{ "name": "next" }],
+    "types": ["jest", "@testing-library/jest-dom", "node", "react", "react-dom"],
     "strictNullChecks": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "exactOptionalPropertyTypes": true,
-    "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@/components/*": [
-        "./components/*"
-      ],
-      "@/utils/*": [
-        "./utils/*"
-      ],
-      "@/lib/*": [
-        "./lib/*"
-      ],
-      "@/types/*": [
-        "./types/*"
-      ],
-      "@/server/*": [
-        "./server/*"
-      ]
-    },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "types": [
-      "jest",
-      "@testing-library/jest-dom"
-    ]
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "importHelpers": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "server/controllers/analyticsController.js",
-    ".next/types/**/*.ts",
-    "src/**/*.ts",
-    "tests/**/*.ts"
+    "**/*.js",
+    "**/*.jsx",
+    "backend/src/**/*.ts",
+    "frontend/**/*.ts",
+    "frontend/**/*.tsx",
+    "global.d.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

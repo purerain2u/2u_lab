@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs",
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["src/*"],
+        "@utils/*": ["src/utils/*"],
+        "@controllers/*": ["src/controllers/*"],
+        "@models/*": ["src/models/*"],
+        "@routes/*": ["src/routes/*"]
+      },
+      "outDir": "./dist",
+      "rootDir": ".",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "resolveJsonModule": true,
+      "types": ["jest", "@testing-library/jest-dom", "node"]
+    },
+    "include": [
+      "src/**/*",
+      "scripts/**/*"
+    ],
+    "exclude": ["node_modules", "dist"]
+  }
