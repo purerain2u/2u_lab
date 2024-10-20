@@ -4,6 +4,8 @@ import User, { IUser } from '../models/User';
 import PageAnalytics from '../models/PageAnalytics';
 import { dbConnect } from '../utils/dbConnect';
 import { hashPassword } from '../utils/auth';
+import axios from 'axios';
+import { google } from 'googleapis';
 
 // 데이터베이스 작업을 위한 함수들
 async function findUserById(id: string): Promise<IUser | null> {
@@ -103,8 +105,43 @@ export async function updateProfile(req: NextApiRequest, res: NextApiResponse) {
 }
 
 export async function getYoutubeInsights(req: NextApiRequest, res: NextApiResponse) {
-  // YouTube API 연동 및 인사이트 데이터 가져오기 로직
-  res.json({ message: 'YouTube 인사이트 기능은 아직 구현되지 않았습니다.' });
+  try {
+    const youtubeApiKey = process.env.YOUTUBE_API_KEY;
+    if (!youtubeApiKey) {
+      throw new Error('YouTube API 키가 설정되지 않았습니다.');
+    }
+
+    const youtube = google.youtube({
+      version: 'v3',
+      auth: youtubeApiKey
+    });
+
+    // 예시: 특정 채널의 통계 정보 가져오기
+    const channelId = req.query.channelId as string;
+    if (!channelId) {
+      return res.status(400).json({ error: '채널 ID가 제공되지 않았습니다.' });
+    }
+
+    const response = await youtube.channels.list({
+      part: ['statistics'],
+      id: [channelId]
+    });
+
+    const channelStats = response.data.items?.[0]?.statistics;
+
+    if (!channelStats) {
+      return res.status(404).json({ error: '채널 정보를 찾을 수 없습니다.' });
+    }
+
+    res.json({
+      subscriberCount: channelStats.subscriberCount,
+      viewCount: channelStats.viewCount,
+      videoCount: channelStats.videoCount
+    });
+  } catch (error) {
+    console.error('YouTube 인사이트 조회 오류:', error);
+    res.status(500).json({ error: 'YouTube 인사이트 데이터를 가져오는 중 오류가 발생했습니다.' });
+  }
 }
 
 export async function recordPageVisit(req: NextApiRequest, res: NextApiResponse) {
